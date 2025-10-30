@@ -1,10 +1,13 @@
 services:
   - type: web
-    name: wati-free-bot
+    name: wati-auto-bot
     env: python
-    plan: free
     buildCommand: |
-      pip install --upgrade pip
+      pip install --upgrade pip setuptools wheel
       pip install -r requirements.txt
-      playwright install --with-deps chromium
+      python -m playwright install --with-deps chromium
     startCommand: python main.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.13
+    autoDeploy: true
