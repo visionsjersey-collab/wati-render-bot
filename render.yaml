@@ -3,11 +3,9 @@ services:
     name: wati-auto-bot
     env: python
     buildCommand: |
+      apt-get update && apt-get install -y python3.10 python3.10-venv python3.10-dev g++
       pip install --upgrade pip setuptools wheel
       pip install -r requirements.txt
       python -m playwright install --with-deps chromium
     startCommand: python main.py
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.10.13
     autoDeploy: true
