@@ -1,6 +1,6 @@
 services:
-  - type: worker
-    name: wati-auto-bot
+  - type: web
+    name: wati-free-bot
     env: python
     plan: free
     buildCommand: |
